@@ -1,0 +1,17 @@
+﻿@model MessagesViewModel
+@{
+    ViewData["Title"] = "Read";
+}
+
+<h1>Read</h1>
+
+<table>
+    @foreach (var message in Model.messages)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => message.body)
+            </td>
+        </tr>
+    }
+</table>

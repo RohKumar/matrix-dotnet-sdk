@@ -1,0 +1,47 @@
+﻿@model Matrix.Webapp.Client.Models.RoomsViewModel
+@{
+    ViewData["Title"] = "Authorize";
+}
+
+<h1>Authorize</h1>
+
+    <table>
+        <tr>
+            <td>
+                Room Name
+            </td>
+            <td>
+                Messages
+            </td>
+        </tr>
+        @foreach (var room in Model.rooms)
+        {
+            <tr>
+                <td>
+                    @if (room.Name == null)
+                    {
+                        @Html.DisplayFor(modelItem => room.ID)
+                    }
+                    @Html.DisplayFor(modelItem => room.Name)
+                    *******************************************
+                </td>
+                <td>
+                    <table>
+                        @foreach (var message in room.Messages)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => message.body)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                     ----------------------------------------------------------
+                                </td>
+                            </tr>
+                        }
+                        </table>
+                </td>
+            </tr>
+        }
+    </table>
